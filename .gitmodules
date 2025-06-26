@@ -1,0 +1,3 @@
+[submodule "components/as5600"]
+	path = components/as5600
+	url = git@github.com:FranciszekJanicki/as5600.git

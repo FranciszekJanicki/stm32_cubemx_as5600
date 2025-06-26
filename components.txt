@@ -1,0 +1,1 @@
+git@github.com:FranciszekJanicki/as5600.git as5600
