@@ -12,7 +12,7 @@ function remove_component {
 
     if [ ! -d "$COMP_PATH" ]; then
       echo "Component $COMP_NAME does not exist at $COMP_PATH"
-      exit 0
+      return 0
     fi
 
     echo "Removing component $COMP_NAME"
