@@ -10,4 +10,4 @@ clean:
 
 .PHONY: setup_cmake
 setup_cmake:
-	$(MAKE) clean && mkdir build && cmake -S . -B build
+	$(MAKE) clean && mkdir -p $(BUILD_DIR) && cmake -S . -B $(BUILD_DIR)
