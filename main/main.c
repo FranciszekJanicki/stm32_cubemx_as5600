@@ -36,17 +36,29 @@ as5600_err_t as5600_bus_initialize(void* user)
 {
     as5600_bus_user_t* bus_user = (as5600_bus_user_t*)user;
 
-    if (HAL_I2C_IsDeviceReady(bus_user->i2c_handle, bus_user->i2c_address, 3, 100) != HAL_OK) {
+    if (HAL_I2C_IsDeviceReady(bus_user->i2c_handle,
+                              bus_user->i2c_address,
+                              3,
+                              100) != HAL_OK) {
         return AS5600_ERR_FAIL;
     }
 
     return AS5600_ERR_OK;
 }
 
-as5600_err_t as5600_bus_read_data(void* user, uint8_t address, uint8_t* data, size_t data_size)
+as5600_err_t as5600_bus_read_data(void* user,
+                                  uint8_t address,
+                                  uint8_t* data,
+                                  size_t data_size)
 {
     as5600_bus_user_t* bus_user = (as5600_bus_user_t*)user;
-    HAL_I2C_Mem_Read(bus_user->i2c_handle, bus_user->i2c_address, address, 1, data, data_size, 100);
+    HAL_I2C_Mem_Read(bus_user->i2c_handle,
+                     bus_user->i2c_address,
+                     address,
+                     1,
+                     data,
+                     data_size,
+                     100);
 
     return AS5600_ERR_OK;
 }
@@ -58,7 +70,9 @@ as5600_err_t as5600_gpio_write_pin(void* user, uint32_t pin, bool state)
     return AS5600_ERR_OK;
 }
 
-as5600_err_t as5600_init_chip(as5600_t* as5600, float32_t min_angle, float32_t max_angle)
+as5600_err_t as5600_init_chip(as5600_t* as5600,
+                              float32_t min_angle,
+                              float32_t max_angle)
 {
     as5600_status_reg_t status;
     as5600_err_t err = as5600_get_status_reg(as5600, &status);
@@ -114,12 +128,15 @@ int main(void)
 
     as5600_err_t err = as5600_initialize(
         &as5600,
-        &(as5600_config_t){.dir_pin = GPIO_PIN_2, .min_angle = 0.0F, .max_angle = 180.0F},
+        &(as5600_config_t){.dir_pin = GPIO_PIN_2,
+                           .min_angle = 0.0F,
+                           .max_angle = 180.0F},
         &(as5600_interface_t){
             .gpio_user = GPIOC,
             .gpio_write_pin = as5600_gpio_write_pin,
             .bus_user =
-                &(as5600_bus_user_t){.i2c_address = AS5600_DEV_ADDRESS << 1, .i2c_handle = &hi2c3},
+                &(as5600_bus_user_t){.i2c_address = AS5600_DEV_ADDRESS << 1,
+                                     .i2c_handle = &hi2c3},
             .bus_initialize = as5600_bus_initialize,
             .bus_write_data = as5600_bus_write_data,
             .bus_read_data = as5600_bus_read_data,
