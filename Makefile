@@ -4,12 +4,14 @@ include make/cubemx.mk
 include make/target.mk
 include make/components.mk
 include make/third_party.mk
+include make/tools.mk
+include make/scripts.mk
 
 .DEFAULT_GOAL := build
 
 .PHONY: setup
 setup:
-	sudo chmod +x $(SCRIPTS_DIR)/*
+	$(MAKE) setup_scripts
 	$(MAKE) setup_components
 	$(MAKE) setup_third_party
 	$(MAKE) setup_cmake

@@ -6,8 +6,8 @@ CUBEPROG_BINARY := /opt/stm32cubeprog/bin/STM32CubeProgrammer
 
 .PHONY: cubemx
 cubemx: 
-	$(CUBEMX_BINARY)
+	"$(CUBEMX_BINARY)"
 
 .PHONY: cubeprog
 cubeprog:
-	$(CUBEPROG_BINARY)
+	"$(CUBEPROG_BINARY)"

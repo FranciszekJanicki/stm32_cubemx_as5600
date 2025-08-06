@@ -24,7 +24,7 @@ function add_submodule {
 
 function remove_submodule {
     if [ ! -d "$SUBMODULE_PATH" ]; then
-        echo "Submodule $SUBMODULE_NAME doesnt exist at $SUBMODULE_PATH"        
+        echo "Submodule $SUBMODULE_NAME doesn't exist at $SUBMODULE_PATH"        
         return
     fi
 
@@ -37,7 +37,7 @@ function remove_submodule {
 
 function update_submodule {
     if [ ! -d "$SUBMODULE_PATH" ]; then
-        echo "Submodule $SUBMODULE_NAME doesnt exist at $SUBMODULE_PATH"
+        echo "Submodule $SUBMODULE_NAME doesn't exist at $SUBMODULE_PATH"
         return
     fi
 

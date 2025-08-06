@@ -135,7 +135,7 @@ int main(void)
             .gpio_user = GPIOC,
             .gpio_write_pin = as5600_gpio_write_pin,
             .bus_user =
-                &(as5600_bus_user_t){.i2c_address = AS5600_DEV_ADDRESS << 1,
+                &(as5600_bus_user_t){.i2c_address = AS5600_SLAVE_ADDRESS << 1,
                                      .i2c_handle = &hi2c3},
             .bus_initialize = as5600_bus_initialize,
             .bus_write_data = as5600_bus_write_data,

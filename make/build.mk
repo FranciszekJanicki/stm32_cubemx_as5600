@@ -12,4 +12,4 @@ clean:
 setup_cmake:
 	$(MAKE) clean
 	mkdir -p "$(BUILD_DIR)"
-	cmake -S . -B "$(BUILD_DIR)"
+	cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON $(CMAKE_FLAGS) -S . -B "$(BUILD_DIR)"

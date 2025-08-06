@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 4.0)
 
 include("cubemx/cmake/gcc-arm-none-eabi.cmake")
 
-project(${PROJECT_NAME} LANGUAGES C CXX ASM)
+set(CMAKE_PROJECT_NAME project)
+
+project(${CMAKE_PROJECT_NAME} LANGUAGES C CXX ASM)
 
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 set(BLA_VENDOR "" CACHE STRING "" FORCE)
